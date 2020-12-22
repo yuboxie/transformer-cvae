@@ -5,6 +5,7 @@ from tqdm import tqdm
 from os import mkdir
 from os.path import exists, join
 
+
 def create_reddit_datasets(tokenizer, path, buffer_size, batch_size, max_length):
     print('Vocabulary size is {}.'.format(tokenizer.vocab_size))
     print('Reading data from \"{}\"...'.format(path))

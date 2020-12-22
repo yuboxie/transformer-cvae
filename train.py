@@ -11,6 +11,7 @@ from model_utils import *
 from model_cvae import CVAETransformer, loss_function
 from datasets import *
 
+
 # Some hyper-parameters
 num_layers = 4
 d_model = 768
@@ -49,7 +50,7 @@ log_path = 'log/cvae_000_025_50_lr_1e-4_roberta.txt'
 def main():
     if not exists('log'):
         mkdir('log')
-    f = open(log_path, 'a', encoding = 'utf-8')
+    f = open(log_path, 'w', encoding = 'utf-8')
 
     mirrored_strategy = tf.distribute.MirroredStrategy()
 

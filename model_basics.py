@@ -1,6 +1,7 @@
 import math
 import tensorflow as tf
 
+
 # Multi-Head Attention
 class MultiHeadAttention(tf.keras.layers.Layer):
     def __init__(self, d_model, num_heads, dropout_rate, trainable = True, name = 'multi_head_attention'):
@@ -96,16 +97,7 @@ class MultiHeadAttention(tf.keras.layers.Layer):
         return output, attention_weights
 
 
-def gelu(x):
-    """
-    Implementation of the gelu activation function.
-        For information: OpenAI GPT's gelu is slightly different (and gives slightly different results):
-        0.5 * x * (1 + tf.math.tanh(math.sqrt(2 / math.pi) * (x + 0.044715 * tf.math.pow(x, 3))))
-        Also see https://arxiv.org/abs/1606.08415
-    """
-    return x * 0.5 * (1.0 + tf.math.erf(x / math.sqrt(2.0)))
-
-act_funcs = {'gelu': gelu, 'relu': tf.nn.relu}
+act_funcs = {'gelu': tf.nn.gelu, 'relu': tf.nn.relu}
 
 # Pointwise Feed Forward Network
 def point_wise_feed_forward_network(d_model, dff, hidden_act, trainable = True):

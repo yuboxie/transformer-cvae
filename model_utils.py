@@ -1,6 +1,7 @@
 import numpy as np
 import tensorflow as tf
 
+
 # Masking
 def create_padding_mask(seq):
     # To be consistent with RoBERTa, the padding index is set to 1.
@@ -31,6 +32,7 @@ def create_masks(inp, tar):
     combined_mask = tf.maximum(dec_target_padding_mask, look_ahead_mask)
 
     return enc_inp_padding_mask, enc_tar_padding_mask, combined_mask, dec_padding_mask
+
 
 # Model initialization
 def build_cvae_model(model, max_length, vocab_size):
